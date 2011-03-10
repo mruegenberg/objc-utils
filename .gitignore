@@ -1,0 +1,32 @@
+syntax: glob
+
+#Emacs and vim backup and lock files
+*~
+.\#*
+.*.swp
+
+.DS_Store
+
+*.swp
+*~.nib
+
+**/build/*
+build/*
+
+xcuserdata/*
+**/xcuserdata/*
+
+*.pbxuser
+*.perspective
+*.perspectivev?
+
+*.mode?v?
+
+**.docset/*
+
+_darcs/*
+**/_darcs/*
+
+doc/*
+
+*.svn*
