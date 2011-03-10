@@ -1,0 +1,8 @@
+ObjC-Utils
+==========
+This is a collection of useful classes and extensions for common classes in CoreFoundation and UIKit.
+
+License
+-------
+You can do whatever you want with this code, but there is no guarantee of any kind for it. 
+Code with a different license in the file or a link to its source may have a different license and belongs to the respective owners.
