@@ -7,7 +7,6 @@
 //
 
 #import "NSDate+Additions.h"
-#import "Weekday.h"
 
 
 NSDateFormatter *timeFormatter = nil;
@@ -77,11 +76,11 @@ NSDateFormatter *dateTimeFormatter = nil;
 }
 
 - (NSDate *)prevWeek {
-	return [self dateByAddingDays:((-1) * [[Weekday orderedWeekdays] count])];
+	return [self dateByAddingDays:((-1) * 7)];
 }
 
 - (NSDate *)nextWeek {
-	return [self dateByAddingDays:([[Weekday orderedWeekdays] count])];
+	return [self dateByAddingDays:(7)];
 }
 
 - (NSDate *)justTime {
