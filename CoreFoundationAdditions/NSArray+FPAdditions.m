@@ -20,6 +20,16 @@
 	return [result autorelease];
 }
 
+- (NSArray *)fp_mapWithBlock:(id (^)(id obj))block {
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+	for(id val in self) {
+        id mappedVal = block(val);
+        if(mappedVal)
+            [result addObject:mappedVal];
+	}
+	return [result autorelease];
+}
+
 - (NSArray *)fp_zipWithArray:(NSArray *)otherArray {
 	NSUInteger cnt = [self count];
 	if(otherArray == nil) cnt = 0;
@@ -36,7 +46,6 @@
 	
 	return [result autorelease];
 }
-
 
 - (id)fp_firstObject {
 	if([self count] == 0)

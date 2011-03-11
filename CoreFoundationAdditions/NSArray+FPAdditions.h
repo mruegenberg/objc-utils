@@ -29,6 +29,16 @@
 - (NSArray *)fp_mapWithSelector:(SEL)aSelector;
 
 /**
+ Perform a block on each element of an array, and return an array of the results.
+ If the block returns nil for an object, that object is not added to the block. This may change in the future to NSNull objects being added, you should not rely on this behavior.
+ 
+ This method is somewhat similar to the makeObjectsPerformSelector: but uses a block and aggregates the return values.
+ @param aSelector the selector to perform
+ @return a new array with the results of performing the selector on each array element
+ */
+- (NSArray *)fp_mapWithBlock:(id (^)(id obj))block;
+
+/**
  "Zips" two arrays (for more understanding, look up the word zipper in the dictionary). 
  Each element of self is paired (as an OSTuple) with the corresponding element of otherArray. The length of the result is the length of the shorter of the two arrays.
  [[a,b,c] zipWithArray:[1,2,3,4]] results in [(a,1),(b,2),(c,3)].
