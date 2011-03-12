@@ -12,7 +12,7 @@
 
 @implementation NSArray (ArrayFP)
 
-- (NSArray *)fp_mapWithSelector:(SEL)aSelector {
+- (NSArray *)mapWithSelector:(SEL)aSelector {
 	NSMutableArray *result = [[NSMutableArray alloc] init];
 	for(id val in self) {
 		[result addObject:[val performSelector:aSelector]];
@@ -20,7 +20,7 @@
 	return [result autorelease];
 }
 
-- (NSArray *)fp_mapWithBlock:(id (^)(id obj))block {
+- (NSArray *)mapWithBlock:(id (^)(id obj))block {
     NSMutableArray *result = [[NSMutableArray alloc] init];
 	for(id val in self) {
         id mappedVal = block(val);
@@ -30,7 +30,7 @@
 	return [result autorelease];
 }
 
-- (NSArray *)fp_zipWithArray:(NSArray *)otherArray {
+- (NSArray *)zipWithArray:(NSArray *)otherArray {
 	NSUInteger cnt = [self count];
 	if(otherArray == nil) cnt = 0;
 	else if([otherArray count] < cnt) cnt = [otherArray count];
@@ -47,7 +47,7 @@
 	return [result autorelease];
 }
 
-- (id)fp_firstObject {
+- (id)firstObject {
 	if([self count] == 0)
 		return nil;
 	else

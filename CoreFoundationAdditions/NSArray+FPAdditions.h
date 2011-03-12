@@ -26,7 +26,7 @@
  @param aSelector the selector to perform
  @return a new array with the results of performing the selector on each array element
  */
-- (NSArray *)fp_mapWithSelector:(SEL)aSelector;
+- (NSArray *)mapWithSelector:(SEL)aSelector;
 
 /**
  Perform a block on each element of an array, and return an array of the results.
@@ -36,7 +36,7 @@
  @param aSelector the selector to perform
  @return a new array with the results of performing the selector on each array element
  */
-- (NSArray *)fp_mapWithBlock:(id (^)(id obj))block;
+- (NSArray *)mapWithBlock:(id (^)(id obj))block;
 
 /**
  "Zips" two arrays (for more understanding, look up the word zipper in the dictionary). 
@@ -45,12 +45,12 @@
  @param otherArray Some other array with which to zip. If this is nil, it is treated as an empty array.
  @return The result of zipping the two arrays as an array of OSTuples.
  */
-- (NSArray *)fp_zipWithArray:(NSArray *)otherArray;
+- (NSArray *)zipWithArray:(NSArray *)otherArray;
 
 /**
  The array's first object. Similar to -[lastObject].
  Returns nil if the array is empty.
  */
-- (id)fp_firstObject;
+- (id)firstObject;
 
 @end
