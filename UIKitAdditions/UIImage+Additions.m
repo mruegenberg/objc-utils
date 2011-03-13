@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@implementation UIImage (Additions)
+@implementation UIImage (Scaling)
 
 + (UIImage*)imageFromView:(UIView*)view
 {
@@ -41,5 +41,13 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
     return newImage;
+}
+
+@end
+
+@implementation UIImage (Additions)
+
+- (UIImage *)horizontallyStretchedImage {
+    return [self stretchableImageWithLeftCapWidth:((self.size.width - 1) / 2.0) topCapHeight:0];
 }
 @end
