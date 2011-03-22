@@ -6,7 +6,7 @@
 //
 
 
-#import "NSString+Escape.h"
+#import "NSString+PercentEscape.h"
 
 
 @implementation NSString (PercentEscape)
