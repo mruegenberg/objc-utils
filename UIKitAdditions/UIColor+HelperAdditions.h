@@ -6,7 +6,7 @@
 //  Copyright 2010 Dustlab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface UIColor (HelperAdditions)
