@@ -141,11 +141,11 @@ static char bindingsKey;
     [bindings addObject:binding];
 }
 
-- (void)unbindOtherObject:(NSSet *)bindingsToRemove {
+- (void)unbindOtherObject:(ObjectBinding *)binding {
     NSMutableSet *bindings = objc_getAssociatedObject(self, &bindingsKey);
     if(! bindings) return;
     
-    [bindings minusSet:bindingsToRemove];
+    [bindings removeObject:binding];
 }
 
 @end
