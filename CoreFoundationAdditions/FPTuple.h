@@ -6,6 +6,8 @@
 //  Copyright 2010 Dustlab. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  A tuple containing two arbitrary objects. 
  This class is here to keep the user from having to write an extra class (or having to use a NSDictionary) when all we want is just a cheap wrapper.

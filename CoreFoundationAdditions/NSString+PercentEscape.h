@@ -5,6 +5,8 @@
 //  Copyright Componentix 2010. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 
 @interface NSString (PercentEscape)
 

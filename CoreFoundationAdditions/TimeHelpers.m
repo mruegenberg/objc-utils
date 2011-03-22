@@ -6,6 +6,9 @@
 //  Copyright 2011 Dustlab. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
+
 // time interval in seconds
 NSString *timeIntervalToString(NSInteger timeInterval) {
 	if(timeInterval == 0) return @"None";
