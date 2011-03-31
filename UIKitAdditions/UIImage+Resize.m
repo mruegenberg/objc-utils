@@ -5,7 +5,7 @@
 
 #import "UIImage+Resize.h"
 #import "UIImage+RoundedCorner.h"
-#import "UIImage+Alpha.h"
+#import "UIImage+Additions.h"
 
 // Private helper methods
 @interface UIImage ()
