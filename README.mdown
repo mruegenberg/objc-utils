@@ -1,6 +1,12 @@
 ObjC-Utils
 ==========
-This is a collection of useful classes and extensions for common classes in CoreFoundation and UIKit.
+This is a collection of useful classes and extensions for common classes in `CoreFoundation` and `UIKit`.
+
+What is in here
+---------------
+- Various categories to make the standard CoreFoundation and UIKit classes more useful
+- A few helper classes with the same purpose
+- A simple bindings-like mechanism that introduces bindings for all subclasses of `NSObject`. 
 
 License
 -------
