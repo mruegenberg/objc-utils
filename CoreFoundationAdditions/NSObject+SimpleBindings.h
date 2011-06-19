@@ -21,6 +21,11 @@ typedef id(^SimpleBindingTransformer)(id value);
 /**
  Ensure that the own value for a key is always equal to the value for a keyPath of another object.
  Works both ways, i.e the keypath of the other object is also updated if it changes in self.
+ 
+ The value for the binding of self is initially set to the value of the keyPath of object.
+ 
+ Before deallocating object, you must call unbindObject on self explicitly. 
+ If self is deallocated first, unbinding happens automatically. As a rule of thumb, always call bind:... on the more shortlived of two objects.
  */
 - (void)bind:(NSString *)binding toKeyPath:(NSString *)keyPath ofObject:(id)object;
 

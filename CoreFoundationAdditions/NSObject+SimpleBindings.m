@@ -37,6 +37,7 @@
     if((self = [super init])) {
         self.obj1 = obj1_; self.keyPath1 = keyPath1_;
         self.obj2 = obj2_; self.keyPath2 = keyPath2_;
+		[self.obj1 setValue:[self.obj2 valueForKeyPath:self.keyPath2] forKeyPath:self.keyPath1];
         [self.obj1 addObserver:self forKeyPath:self.keyPath1 options:0 context:NULL];
         [self.obj2 addObserver:self forKeyPath:self.keyPath2 options:0 context:NULL];
 		self.bindingActive = YES;
@@ -57,8 +58,8 @@
     else return;
     
     id val = [object valueForKeyPath:keyPath];
-    
-    if([object valueForKeyPath:keyPath] != [otherObject valueForKeyPath:otherKeyPath]) {
+
+	if((! [[object valueForKeyPath:keyPath] isEqual:[otherObject valueForKeyPath:otherKeyPath]]) && ! (val == nil && [otherObject valueForKeyPath:otherKeyPath] == nil)) {
         [otherObject setValue:val forKeyPath:otherKeyPath];
     }
 }
