@@ -6,7 +6,7 @@ What is in here
 ---------------
 - Various categories to make the standard CoreFoundation and UIKit classes more useful
 - A few helper classes with the same purpose
-- A simple bindings-like mechanism that introduces bindings for all subclasses of `NSObject`. 
+- The simple bindings-like mechanism has moved to its own repository <a href="https://github.com/mruegenberg/objc-simple-bindings">objc-simple-bindings</a>
 
 License
 -------
