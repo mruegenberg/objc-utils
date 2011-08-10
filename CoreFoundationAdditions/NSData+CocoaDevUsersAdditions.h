@@ -15,4 +15,16 @@
  */
 + (NSData *) dataWithBase32String:(NSString *)base32;
 - (NSString *) base32String;
+
+// ZLIB
+- (NSData *) zlibInflate;
+- (NSData *) zlibDeflate;
+
+// GZIP
+// Decompress
+- (NSData *) gzipInflate;
+
+//Compress
+- (NSData *) gzipDeflate;
+
 @end
