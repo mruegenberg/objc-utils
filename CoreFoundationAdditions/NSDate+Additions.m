@@ -13,6 +13,8 @@ NSDateFormatter *timeFormatter = nil;
 NSDateFormatter *dateFormatter = nil;
 NSDateFormatter *dateTimeFormatter = nil;
 
+#define DATE_COMPONENTS (NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekCalendarUnit |  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit | NSWeekdayOrdinalCalendarUnit)
+
 @implementation NSDate (DatePrinters)
 
 - (NSString *)shortTimeString {
@@ -37,6 +39,22 @@ NSDateFormatter *dateTimeFormatter = nil;
 	return r;
 }
 
+- (NSString *)weekdayString {
+    static NSDateFormatter *wDayFormatter = nil;
+    if(wDayFormatter == nil) wDayFormatter = [[NSDateFormatter alloc] init];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+    NSAssert(wDayFormatter != nil, @"Date Formatter for weekdays is nil, but should have a value.");
+    return [[wDayFormatter standaloneWeekdaySymbols] objectAtIndex:([components weekday] - 1)];
+}
+
+- (NSString *)shortWeekdayString {
+    static NSDateFormatter *wDayFormatter = nil;
+    if(wDayFormatter == nil) wDayFormatter = [[NSDateFormatter alloc] init];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+    NSAssert(wDayFormatter != nil, @"Date Formatter for short weekdays is nil, but should have a value.");
+    return [[wDayFormatter shortStandaloneWeekdaySymbols] objectAtIndex:([components weekday] - 1)];
+}
+
 - (NSString *)dateTimeString {
 	if(dateTimeFormatter == nil) {
 		dateTimeFormatter = [[NSDateFormatter alloc] init];
@@ -55,6 +73,10 @@ NSDateFormatter *dateTimeFormatter = nil;
 
 - (NSDate *)nextHour {
 	return [self dateByAddingMinutes:60];
+}
+
+- (NSDate *)prevHour {
+	return [self dateByAddingMinutes:(-60)];
 }
 
 - (NSDate *)dateByAddingDays:(NSInteger)days {
@@ -104,6 +126,18 @@ NSDateFormatter *dateTimeFormatter = nil;
 	return [[NSDate date] justTime];
 }
 
+- (NSDate *)beginOfDay {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+    [components setHour:0]; [components setMinute:0]; [components setSecond:0];
+	return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+- (NSDate *)endOfDay {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+    [components setHour:23]; [components setMinute:59]; [components setSecond:59];
+	return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
 - (NSDate *)dateRoundedToMinutes:(NSUInteger)minutes {
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	static unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
@@ -113,6 +147,29 @@ NSDateFormatter *dateTimeFormatter = nil;
 	else dateMinutes = (dateMinutes / minutes) * minutes;
 	[comps setMinute:dateMinutes];
 	return [calendar dateFromComponents:comps];
+}
+
++ (NSDate *)dateWithHour:(NSUInteger)hour minutes:(NSUInteger)minutes seconds:(NSUInteger)seconds {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:[NSDate date]];
+    [components setHour:hour];
+    [components setMinute:minutes];
+    [components setSecond:seconds];
+    return [[NSCalendar currentCalendar] dateFromComponents:components];
+}
+
+@end
+
+
+@implementation NSDate (Decomposition)
+
+- (NSInteger)hour {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+	return [components hour];
+}
+
+- (NSInteger)day {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+	return [components day];
 }
 
 @end

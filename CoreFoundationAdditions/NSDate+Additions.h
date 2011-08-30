@@ -15,15 +15,25 @@
 @interface NSDate (DatePrinters)
 
 /**
- Return a string representing the time component of the string.
+ Return a string representing the time component of the date.
  */
 - (NSString *)shortTimeString;
 
 /**
- Return a string representing the date component of the string in 
+ Return a string representing the date component of the date in 
  (locale-dependent) short date form.
  */
 - (NSString *)dateString;
+
+/**
+ Return a string representing the full weekday component of the date in the current locale
+ */
+- (NSString *)weekdayString;
+
+/**
+ Return a string representing the full weekday component of the date in the current locale
+ */
+- (NSString *)shortWeekdayString;
 
 
 /**
@@ -37,6 +47,7 @@
 
 @interface NSDate (DateHelpers)
 - (NSDate *)nextHour;
+- (NSDate *)prevHour;
 - (NSDate *)dateByAddingDays:(NSInteger)days;
 - (NSDate *)dateByAddingMinutes:(NSInteger)minutes;
 - (NSDate *)prevDay;
@@ -61,9 +72,24 @@
  */
 + (NSDate *)nowTime;
 
+- (NSDate *)beginOfDay;
+
+- (NSDate *)endOfDay;
+
 /**
  Returns a version of the date whose minutes component is rounded to the amount of minutes in the first argument.
  @param minutes The minutes to which to round. If zero, the minute part is discarded.
  */
 - (NSDate *)dateRoundedToMinutes:(NSUInteger)minutes;
+
++ (NSDate *)dateWithHour:(NSUInteger)hour minutes:(NSUInteger)minutes seconds:(NSUInteger)seconds;
 @end
+
+
+@interface NSDate (Decomposition)
+
+@property (readonly) NSInteger hour;
+@property (readonly) NSInteger day;
+
+@end
+
