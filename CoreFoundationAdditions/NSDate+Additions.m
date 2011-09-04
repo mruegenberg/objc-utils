@@ -157,6 +157,10 @@ NSDateFormatter *dateTimeFormatter = nil;
     return [[NSCalendar currentCalendar] dateFromComponents:components];
 }
 
+- (NSInteger)daysSinceDate:(NSDate *)date {
+	return ([self timeIntervalSinceDate:date] / (60 * 60 * 24));
+}
+
 @end
 
 
@@ -167,9 +171,24 @@ NSDateFormatter *dateTimeFormatter = nil;
 	return [components hour];
 }
 
+- (NSInteger)minute {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+	return [components minute];
+}
+
 - (NSInteger)day {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
 	return [components day];
+}
+
+- (NSInteger)month {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+	return [components month];
+}
+
+- (NSInteger)year {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:DATE_COMPONENTS fromDate:self];
+	return [components year];
 }
 
 @end

@@ -83,13 +83,18 @@
 - (NSDate *)dateRoundedToMinutes:(NSUInteger)minutes;
 
 + (NSDate *)dateWithHour:(NSUInteger)hour minutes:(NSUInteger)minutes seconds:(NSUInteger)seconds;
+
+- (NSInteger)daysSinceDate:(NSDate *)date;
 @end
 
 
 @interface NSDate (Decomposition)
 
 @property (readonly) NSInteger hour;
+@property (readonly) NSInteger minute;
 @property (readonly) NSInteger day;
+@property (readonly) NSInteger month;
+@property (readonly) NSInteger year;
 
 @end
 
