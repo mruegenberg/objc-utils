@@ -8,7 +8,11 @@ What is in here
 - A few helper classes with the same purpose
 - The simple bindings-like mechanism has moved to its own repository <a href="https://github.com/mruegenberg/objc-simple-bindings">objc-simple-bindings</a>
 
+How to use
+----------
+Currently, the easiest way to use it is to just copy the files you need (and their dependencies) to your project.
+
 License
 -------
-You can do whatever you want with this code, but there is no guarantee of any kind for it. 
-Code with a different license in the file or a link to its source may have a different license and belongs to the respective owners.
+You can redistribute and use in your commercial or non-commercial projects all of this code. No guarantee is expressed or implied.
+If you redistribute the code, license notices and the name of the original author (if contained in the code) must be preserved.
