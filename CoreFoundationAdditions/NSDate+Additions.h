@@ -42,6 +42,13 @@
  */
 - (NSString *)dateTimeString;
 
+
+/**
+ Return a string representing the date and time component of the string in 
+ (locale-dependent) short date and short time form, with the weekday.
+ */
+- (NSString *)longDateTimeString;
+
 @end
 
 
@@ -76,6 +83,8 @@
 
 - (NSDate *)endOfDay;
 
+- (NSDate *)middleOfDay;
+
 /**
  Returns a version of the date whose minutes component is rounded to the amount of minutes in the first argument.
  @param minutes The minutes to which to round. If zero, the minute part is discarded.
@@ -85,6 +94,11 @@
 + (NSDate *)dateWithHour:(NSUInteger)hour minutes:(NSUInteger)minutes seconds:(NSUInteger)seconds;
 
 - (NSInteger)daysSinceDate:(NSDate *)date;
+
+// a fast implementtion of daysSinceDate. Requires that self is already equal to [self beginOfDay].
+- (NSInteger)daysSinceDateFast:(NSDate *)date;
+
+- (BOOL)isWeekend;
 @end
 
 
