@@ -6,8 +6,7 @@
 //  Copyright 2009 Dustlab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+void CGPathAddRoundedRect(CGMutablePathRef path, CGRect rect, CGFloat radius);
 
 /**
  Add a rounded rectangle to the current CGContext.
@@ -50,6 +49,12 @@ void DL_CGContextDrawLinearGradientOverRect(CGContextRef context, NSArray *color
  Draw the typical steel gradient.
  */
 void DL_CGContextDrawSteelGradientOverRect(CGContextRef context, CGRect rect);
+void DL_CGContextDrawLightSteelGradientOverRect(CGContextRef context, CGRect rect);
+
+/**
+ Draw highlights at top and bottom.
+ */
+void DL_CGContextDrawHighlightsOverRect(CGContextRef context, CGRect rect);
 
 #define DISCLOSURE_IND_SIZE 6
 /**

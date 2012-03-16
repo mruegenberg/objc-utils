@@ -9,6 +9,16 @@
 #import "UIKit+DrawingHelpers.h"
 
 
+void CGPathAddRoundedRect(CGMutablePathRef path, CGRect rect, CGFloat radius) {
+    if(2 * radius > rect.size.height) radius = rect.size.height / 2.0;
+    if(2 * radius > rect.size.width) radius = rect.size.width / 2.0;
+    CGPathAddArc(path, NULL, rect.origin.x + radius, rect.origin.y + radius, radius, M_PI, M_PI * 1.5, 0);
+    CGPathAddArc(path, NULL, rect.origin.x + rect.size.width - radius, rect.origin.y + radius, radius, M_PI * 1.5, M_PI * 2, 0);
+    CGPathAddArc(path, NULL, rect.origin.x + rect.size.width - radius, rect.origin.y + rect.size.height - radius, radius, M_PI * 2, M_PI * 0.5, 0);
+    CGPathAddArc(path, NULL, rect.origin.x + radius, rect.origin.y + rect.size.height - radius, radius, M_PI * 0.5, M_PI, 0);
+    CGPathAddLineToPoint(path, NULL, rect.origin.x, rect.origin.y + radius);
+}
+
 void CGContextAddRoundedRect(CGContextRef c, CGRect rect, CGFloat radius) {
 	if(2 * radius > rect.size.height) radius = rect.size.height / 2.0;
 	if(2 * radius > rect.size.width) radius = rect.size.width / 2.0;
@@ -62,6 +72,28 @@ void DL_CGContextDrawSteelGradientOverRect(CGContextRef context, CGRect rect) {
 											[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0],
 											[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0],
 											[UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0],
+											[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0],nil],
+										   locations, rect);
+}
+
+void DL_CGContextDrawLightSteelGradientOverRect(CGContextRef context, CGRect rect) {
+    CGFloat locations[4] = { 0.0, 0.025, 0.985, 1.0 };
+	DL_CGContextDrawLinearGradientOverRect(context, 
+										   [NSArray arrayWithObjects:
+											[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0],
+											[UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0],
+											[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0],
+											[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0],nil],
+										   locations, rect);
+}
+
+void DL_CGContextDrawHighlightsOverRect(CGContextRef context, CGRect rect) {
+    CGFloat locations[4] = { 0.0, 0.02, 0.98, 1.0 };
+	DL_CGContextDrawLinearGradientOverRect(context, 
+										   [NSArray arrayWithObjects:
+											[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0],
+											[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0],
+											[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.0],
 											[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0],nil],
 										   locations, rect);
 }
