@@ -6,9 +6,6 @@
 //  Copyright 2011 Dustlab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-
 typedef void(^DLControlAction)(id sender);
 
 @interface UIControl (UIControl_DLBlockAdditions)

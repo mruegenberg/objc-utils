@@ -11,10 +11,8 @@
 
 
 
-@interface DLBlockWrapper : NSObject {
-}
+@interface DLBlockWrapper : NSObject
 @property (nonatomic, copy) DLControlAction block;
-
 - (void)invoke:(id)sender;
 @end
 
