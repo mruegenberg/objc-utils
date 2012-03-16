@@ -9,6 +9,10 @@
 #import "PopoverManager.h"
 #import "SynthesizeSingleton.h"
 
+@interface PopoverManager ()
+- (void)didReceiveMemoryWarning:(NSNotification *)notification;
+@end
+
 @implementation PopoverManager
 @synthesize currentPopoverController;
 
@@ -25,7 +29,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PopoverManager);
 	if(thePopoverController != currentPopoverController) {
 		if(currentPopoverController && currentPopoverController.popoverVisible) {
 #ifndef NDEBUG
-			NSLog(@"Warning: New popover being set in PopoverManager while existing popover is still visible.");
+            if(thePopoverController != nil)
+                NSLog(@"Warning: New popover being set in PopoverManager while existing popover is still visible.");
 #endif
 			[currentPopoverController dismissPopoverAnimated:NO]; // no animation when dismissing because this should not happen
 		}
