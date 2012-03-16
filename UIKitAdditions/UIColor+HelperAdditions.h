@@ -6,9 +6,6 @@
 //  Copyright 2010 Dustlab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-
 @interface UIColor (HelperAdditions)
 
 + (UIColor *)prussianBlueColor;
