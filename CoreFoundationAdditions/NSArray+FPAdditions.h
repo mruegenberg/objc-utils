@@ -18,17 +18,6 @@
 @interface NSArray (ArrayFP)
 
 /**
- Perform a selector on each element of an array, and return an array of the results.
- The method does not check if the result actually works, so it is up to you to supply a selector
- that returns elements that can be packed in an array for each element in self.
- 
- This method is simular to the makeObjectsPerformSelector: but aggregates the return values.
- @param aSelector the selector to perform
- @return a new array with the results of performing the selector on each array element
- */
-- (NSArray *)mapWithSelector:(SEL)aSelector;
-
-/**
  Perform a block on each element of an array, and return an array of the results.
  If the block returns nil for an object, that object is not added to the block. This may change in the future to NSNull objects being added, you should not rely on this behavior.
  
@@ -52,5 +41,8 @@
  Returns nil if the array is empty.
  */
 - (id)firstObject;
+
+// array with all objects but the last; if the original array was empty, returns the original array
+- (NSArray *)initialArray;
 
 @end

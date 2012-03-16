@@ -17,4 +17,5 @@
  The behaviour if there is more than one = (i.e. not with a & in between) in the string is undefined.
  */
 - (NSDictionary *)getParameters;
+
 @end

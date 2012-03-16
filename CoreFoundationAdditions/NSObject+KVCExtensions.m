@@ -7,16 +7,24 @@
 //
 
 #import "NSObject+KVCExtensions.h"
-
+#import "NSArray+FPAdditions.h"
 
 @implementation NSObject (KVCExtensions)
 
 - (void)setValuesForKeyPathsWithDictionary:(NSDictionary *)keyedValues {
 	for(id keyPath in keyedValues) {
-		if([keyedValues valueForKeyPath:keyPath] == [NSNull null])
-			[self setValue:nil forKeyPath:keyPath];
-		else
-			[self setValue:[keyedValues objectForKey:keyPath] forKeyPath:keyPath];
+		if([keyedValues valueForKeyPath:keyPath] == [NSNull null]) {
+            if([self valueForKeyPath:fromEmptyStr([[[keyPath componentsSeparatedByString:@"."] initialArray] componentsJoinedByString:@"."], keyPath)] != nil)
+                [self setValue:nil forKeyPath:keyPath];
+            else
+                [self setValue:nil forKey:keyPath];
+        }
+		else {
+            if([self valueForKeyPath:fromEmptyStr([[[keyPath componentsSeparatedByString:@"."] initialArray] componentsJoinedByString:@"."], keyPath)] != nil)
+                [self setValue:[keyedValues objectForKey:keyPath] forKeyPath:keyPath];
+            else
+                [self setValue:[keyedValues objectForKey:keyPath] forKey:keyPath];
+        }
 	}
 }
 
