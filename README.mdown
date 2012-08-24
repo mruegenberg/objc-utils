@@ -6,7 +6,11 @@ What is in here
 ---------------
 - Various categories to make the standard CoreFoundation and UIKit classes more useful
 - A few helper classes with the same purpose
-- The simple bindings-like mechanism has moved to its own repository <a href="https://github.com/mruegenberg/objc-simple-bindings">objc-simple-bindings</a>
+
+Compatibility
+-------------
+- As of version 0.2.0, all code requires an ARC (Automatic Reference Counting) capable compiler.
+- Everything should be compatible with the iOS SDK 5 or above
 
 How to use
 ----------
