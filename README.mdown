@@ -14,7 +14,9 @@ Compatibility
 
 How to use
 ----------
-Currently, the easiest way to use it is to just copy the files you need (and their dependencies) to your project.
+Just copy the files you need (and their dependencies) to your project. 
+
+You can also use objc-utils with [CocoaPods](http://cocoapods.org).
 
 License
 -------
