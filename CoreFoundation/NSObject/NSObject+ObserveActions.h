@@ -21,7 +21,7 @@ typedef void(^ObserveAction)(void);
 // usually pass the object from which you call the method as a reference both when adding and removing the observer.
 - (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath context:(id)context;
 
-//- (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath; // for backwards compatibility. uses `nil` as the context.
+- (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath; // for backwards compatibility. uses `nil` as the context.
 
 // remove the action observer for the corresponding keypath with a specific context (which may be nil)
 - (void)removeActionObserverForKeyPath:(NSString *)keyPath context:(id)context;
