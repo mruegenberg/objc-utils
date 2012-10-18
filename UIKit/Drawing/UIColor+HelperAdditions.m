@@ -40,4 +40,8 @@
 	return [self colorMultipliedByScalar:scalar withMinimum:0.0];
 }
 
++ (UIColor *)randomColor {
+    return [UIColor colorWithHue:(rand() / (CGFloat)RAND_MAX) saturation:1.0 brightness:1.0 alpha:1.0];
+}
+
 @end

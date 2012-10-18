@@ -26,6 +26,11 @@
  */
 - (UIColor *)colorMultipliedByScalar:(CGFloat)scalar withMinimum:(CGFloat)min;
 
+/**
+ A fully saturated random color. use this for debugging your drawing code.
+ */
++ (UIColor *)randomColor;
+
 @end
 
 #define RGB(rVal, gVal, bVal) [UIColor colorWithRed:rVal green:gVal blue:bVal alpha:1.0]
