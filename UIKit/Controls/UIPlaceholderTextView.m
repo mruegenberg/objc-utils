@@ -18,7 +18,8 @@
 
 - (void)setup {
     [self setPlaceholder:@""];
-    [self setPlaceholderColor:[UIColor lightGrayColor]];
+    if(self.placeholderColor == nil) self.placeholderColor = [UIColor lightGrayColor];
+    [self setPlaceholderColor:self.placeholderColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChanged:) name:UITextViewTextDidChangeNotification object:nil];
 }
 
