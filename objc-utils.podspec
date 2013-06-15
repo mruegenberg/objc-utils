@@ -27,13 +27,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'CoreFoundation' do |sp|
     sp.source_files = 'CoreFoundation/**/*.{h,m,c}'
-    s.library   = 'z'
-    s.framework = 'CoreFoundation'
+    sp.library   = 'z'
+    sp.framework = 'CoreFoundation'
   end
 
   s.subspec 'UIKit' do |sp|
     sp.source_files = 'UIKit/**/*.{h,m,c}'
-    s.framework = 'UIKit'
-    s.resources = 'UIKit/ViewUtil/*.png'
+    sp.framework = 'UIKit'
+    sp.resources = 'UIKit/ViewUtil/*.png'
   end
 end
