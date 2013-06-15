@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "objc-utils"
-  s.version      = "0.2.5"
+  s.version      = "0.3"
   s.summary      = "Utilities for developing with Objective-C, particularly under iOS."
   s.description  = <<-DESC
                     This is a collection of useful classes and extensions for common classes in CoreFoundation and UIKit.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.author       = { "Marcel Ruegenberg" => "github@dustlab.com" }
-  s.source       = { :git => "https://github.com/mruegenberg/objc-utils.git", :tag => "0.2.5" }
+  s.source       = { :git => "https://github.com/mruegenberg/objc-utils.git", :tag => "0.3" }
   
   s.platform = :ios, "5.0"
   s.requires_arc = true
