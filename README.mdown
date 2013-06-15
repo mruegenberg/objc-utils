@@ -18,6 +18,12 @@ Just copy the files you need (and their dependencies) to your project.
 
 You can also use objc-utils with [CocoaPods](http://cocoapods.org).
 
+Replacements for removed categories
+-----------------------------------
+Over time, some categories were removed, since their functionality is offered in separate projects:
+- Use [KSCrypto](https://github.com/karelia/KSCrypto) instead of `NSString+Hash`. Note, however, that the resulting hashes are different, as NSString+Hash used Base32 encoding to convert hashes to strings.
+- Use the [GZIP](https://github.com/rcdilorenzo/GZIP) instead of `NSData+CocoaDevUserAdditions`. GZIP, using the default compression/decompression methods is fully compatible to `NSData+CocoaDevUserAdditions`.
+
 License
 -------
 You can redistribute and use in your commercial or non-commercial projects all of this code. No guarantee is expressed or implied.
