@@ -46,6 +46,11 @@
     else self.placeHolderLabel.alpha = 0;
 }
 
+- (void)setText:(NSString *)text {
+    [super setText:text];
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     if( [[self placeholder] length] > 0 )
@@ -71,6 +76,9 @@
     if( [[self text] length] == 0 && [[self placeholder] length] > 0 )
     {
         [[self viewWithTag:999] setAlpha:1];
+    }
+    else {
+        [[self viewWithTag:999] setAlpha:0];
     }
 	
     [super drawRect:rect];
