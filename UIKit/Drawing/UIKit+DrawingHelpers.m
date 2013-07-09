@@ -9,7 +9,7 @@
 #import "UIKit+DrawingHelpers.h"
 
 
-void CGPathAddRoundedRect(CGMutablePathRef path, CGRect rect, CGFloat radius) {
+void CGPathAddRoundedRectSimple(CGMutablePathRef path, CGRect rect, CGFloat radius) {
     if(2 * radius > rect.size.height) radius = rect.size.height / 2.0;
     if(2 * radius > rect.size.width) radius = rect.size.width / 2.0;
     CGPathAddArc(path, NULL, rect.origin.x + radius, rect.origin.y + radius, radius, M_PI, M_PI * 1.5, 0);

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-void CGPathAddRoundedRect(CGMutablePathRef path, CGRect rect, CGFloat radius);
+void CGPathAddRoundedRectSimple(CGMutablePathRef path, CGRect rect, CGFloat radius);
 
 /**
  Add a rounded rectangle to the current CGContext.
