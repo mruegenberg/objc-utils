@@ -137,9 +137,8 @@ BOOL is24HourFormat() {
 
 - (NSDate *)justTime {
 	NSCalendar *calendar = curCalendar();
-	static unsigned unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit;
+	static unsigned unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
 	NSDateComponents *components = [calendar components:unitFlags fromDate:self];
-	[components setYear:1970]; [components setMonth:1]; [components setDay:1]; 
 	return [calendar dateFromComponents:components];
 }
 
@@ -147,8 +146,6 @@ BOOL is24HourFormat() {
 	NSCalendar *calendar = curCalendar();
 	static unsigned unitFlags = NSHourCalendarUnit;
 	NSDateComponents *components = [calendar components:unitFlags fromDate:self];
-	[components setYear:1970]; [components setMonth:1]; [components setDay:1];
-	[components setMinute:0]; [components setSecond:0];
 	return [calendar dateFromComponents:components];
 }
 
