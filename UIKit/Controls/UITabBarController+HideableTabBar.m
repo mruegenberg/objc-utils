@@ -12,6 +12,7 @@
 @implementation UITabBarController (HideableTabBar)
 
 - (void)setTabBarHidden:(BOOL)hidden {
+    CGFloat h = hidden ? 0.01 : 49;
     UIView *contentView = nil;
     
     NSArray *subviews = self.view.subviews;
@@ -25,20 +26,17 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         CGRect f = self.tabBar.frame;
+        f.size.height = h;
         
-        if (hidden) {
-            contentView.frame = self.view.bounds;
-            f.origin.y = self.view.bounds.origin.y + self.view.bounds.size.height;
-        }
-        else {
-            contentView.frame = CGRectMake(self.view.bounds.origin.x,
-                                           self.view.bounds.origin.y,
-                                           self.view.bounds.size.width,
-                                           self.view.bounds.size.height - f.size.height);
-            f.origin.y = self.view.bounds.origin.y + self.view.bounds.size.height - f.size.height;
-        }
+        contentView.frame = CGRectMake(self.view.bounds.origin.x,
+                                       self.view.bounds.origin.y,
+                                       self.view.bounds.size.width,
+                                       self.view.bounds.size.height - f.size.height);
+        f.origin.y = self.view.bounds.origin.y + self.view.bounds.size.height - f.size.height;
         
         self.tabBar.frame = f;
+        
+        self.tabBar.alpha = hidden ? 0.0 : 1.0;
     }];
 }
 
