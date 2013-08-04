@@ -6,8 +6,6 @@
 //  Copyright 2011 Dustlab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 UIButton *deleteButtonWithTitle(NSString *title);
 
 void displayInfoAlert(NSString *message);

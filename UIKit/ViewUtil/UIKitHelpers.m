@@ -7,6 +7,8 @@
 //
 
 #import "UIKitHelpers.h"
+#import "UIKit+DrawingHelpers.h"
+#import "Util.h"
 
 
 UIButton *deleteButtonWithTitle(NSString *title) {
@@ -14,15 +16,32 @@ UIButton *deleteButtonWithTitle(NSString *title) {
 	
 	deleteButton.frame = CGRectMake(0, 0, 300, 40);
 	[deleteButton setTitle:title forState:UIControlStateNormal];
-	
-	UIImage *deleteButtonBG = [[UIImage imageNamed:@"delete_button.png"] stretchableImageWithLeftCapWidth:9 topCapHeight:0];
+    
+    UIImage *deleteButtonBG = nil;
+    if(majorOSVersion() < 7) {
+        deleteButtonBG = [[UIImage imageNamed:@"delete_button.png"] stretchableImageWithLeftCapWidth:9 topCapHeight:0];
+    }
+    else {
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(21, 40), NO, deleteButton.contentScaleFactor);
+        CGContextRef c = UIGraphicsGetCurrentContext();
+        [[UIColor colorWithWhite:1.0 alpha:0.8] setFill];
+        CGContextFillRoundedRect(c, CGRectMake(0, 0, 21, 40), 10);
+        deleteButtonBG = [UIGraphicsGetImageFromCurrentImageContext() stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+        UIGraphicsEndImageContext();
+    }
 	[deleteButton setBackgroundImage:deleteButtonBG forState:UIControlStateNormal];
-	deleteButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
-	
-	[deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[deleteButton setTitleShadowColor:[UIColor colorWithRed:0.5 green:0 blue:0 alpha:1.0] forState:UIControlStateNormal];
-	
-	deleteButton.titleLabel.shadowOffset = CGSizeMake(0, -1);
+    if(majorOSVersion() < 7) {
+        deleteButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+        [deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [deleteButton setTitleShadowColor:[UIColor colorWithRed:0.5 green:0 blue:0 alpha:1.0] forState:UIControlStateNormal];
+        deleteButton.titleLabel.shadowOffset = CGSizeMake(0, -1);
+    }
+    else {
+        deleteButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
+        deleteButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        deleteButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        [deleteButton setTitleColor:[UIColor colorWithRed:0.99 green:0.27 blue:0.15 alpha:1.0] forState:UIControlStateNormal];
+    }
 	
 	return deleteButton;
 }
