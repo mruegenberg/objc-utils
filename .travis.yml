@@ -1,1 +1,13 @@
 language: objective-c
+
+install: brew install cmake
+
+compiler:
+  - clang
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake -G Xcode ..
+
+script: xcodebuild
