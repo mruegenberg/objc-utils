@@ -28,3 +28,9 @@ License
 -------
 You can redistribute and use in your commercial or non-commercial projects all of this code. No guarantee is expressed or implied.
 If you redistribute the code, license notices and the name of the original author (if contained in the code) must be preserved.
+
+## Contact
+
+![Travis CI build status](https://api.travis-ci.org/mruegenberg/objc-utils.png)
+
+Bug reports and pull requests are welcome! Contact me via e-mail or just by opening an issue on GitHub.
