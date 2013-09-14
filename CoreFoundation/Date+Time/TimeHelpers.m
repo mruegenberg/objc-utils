@@ -6,6 +6,8 @@
 //  Copyright 2011 Dustlab. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 // time interval in seconds
 NSString *timeLengthToString(NSInteger timeLength) {
     NSString *timeStr = @"";
