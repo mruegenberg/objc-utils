@@ -29,7 +29,7 @@
 }
 
 - (void)setCurrentPopoverController:(UIPopoverController *)thePopoverController {
-	if(thePopoverController != _currentPopoverController) {
+	if(thePopoverController != currentPopoverController) {
 		if(currentPopoverController && currentPopoverController.popoverVisible) {
 #ifndef NDEBUG
             if(thePopoverController != nil)
