@@ -7,8 +7,8 @@
 //
 
 #import "NSObject+KVCExtensions.h"
-#import "NSArray+FPAdditions.h"
-#import "Util.h"
+#import <NSArray+FPAdditions.h>
+#import <Util.h>
 
 @implementation NSObject (KVCExtensions)
 
