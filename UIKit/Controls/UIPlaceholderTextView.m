@@ -54,22 +54,22 @@
 {
     if( [[self placeholder] length] > 0 )
     {
-        if ( placeHolderLabel == nil )
+        if ( self.placeHolderLabel == nil )
         {
-            placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectMake(8,8,self.bounds.size.width - 16,0)];
-            placeHolderLabel.lineBreakMode = UILineBreakModeWordWrap;
-            placeHolderLabel.numberOfLines = 0;
-            placeHolderLabel.font = self.font;
-            placeHolderLabel.backgroundColor = [UIColor clearColor];
-            placeHolderLabel.textColor = self.placeholderColor;
-            placeHolderLabel.alpha = 0;
-            placeHolderLabel.tag = 999;
-            [self addSubview:placeHolderLabel];
+            self.placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectMake(8,8,self.bounds.size.width - 16,0)];
+            self.placeHolderLabel.lineBreakMode = UILineBreakModeWordWrap;
+            self.placeHolderLabel.numberOfLines = 0;
+            self.placeHolderLabel.font = self.font;
+            self.placeHolderLabel.backgroundColor = [UIColor clearColor];
+            self.placeHolderLabel.textColor = self.placeholderColor;
+            self.placeHolderLabel.alpha = 0;
+            self.placeHolderLabel.tag = 999;
+            [self addSubview:self.placeHolderLabel];
         }
 		
-        placeHolderLabel.text = self.placeholder;
-        [placeHolderLabel sizeToFit];
-        [self sendSubviewToBack:placeHolderLabel];
+        self.placeHolderLabel.text = self.placeholder;
+        [self.placeHolderLabel sizeToFit];
+        [self sendSubviewToBack:self.placeHolderLabel];
     }
 	
     if( [[self text] length] == 0 && [[self placeholder] length] > 0 )

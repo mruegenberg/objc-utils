@@ -13,6 +13,7 @@
 @end
 
 @implementation PopoverManager
+@synthesize currentPopoverController;
 
 + (PopoverManager *)sharedPopoverManager {
     static PopoverManager *sharedPopoverManager;
@@ -28,7 +29,7 @@
 }
 
 - (void)setCurrentPopoverController:(UIPopoverController *)thePopoverController {
-	if(thePopoverController != currentPopoverController) {
+	if(thePopoverController != _currentPopoverController) {
 		if(currentPopoverController && currentPopoverController.popoverVisible) {
 #ifndef NDEBUG
             if(thePopoverController != nil)
