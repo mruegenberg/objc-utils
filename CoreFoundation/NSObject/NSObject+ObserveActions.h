@@ -22,12 +22,14 @@ typedef void(^ObserveAction)(void);
 - (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath context:(id)context;
 
 // for backwards compatibility. uses `nil` as the context.
-- (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath DEPRECATED_MSG_ATTRIBUTE("Supersed by -[addObserverAction:forKeyPath:context:]. Will be removed in a future release.");
+- (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath;
+// DEPRECATED_MSG_ATTRIBUTE("Supersed by -[addObserverAction:forKeyPath:context:]. Will be removed in a future release.");
 
 // remove the action observer for the corresponding keypath with a specific context (which may be nil)
 - (void)removeActionObserverForKeyPath:(NSString *)keyPath context:(id)context;
 
 // for backwards compatibility. uses `nil` as the context.
-- (void)removeActionObserverForKeyPath:(NSString *)keyPath DEPRECATED_MSG_ATTRIBUTE("Supersed by -[removeActionObserverForKeyPath:context:]. Will be removed in a future release."); 
+- (void)removeActionObserverForKeyPath:(NSString *)keyPath;
+// DEPRECATED_MSG_ATTRIBUTE("Supersed by -[removeActionObserverForKeyPath:context:]. Will be removed in a future release.");
 
 @end
