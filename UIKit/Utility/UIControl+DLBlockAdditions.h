@@ -17,6 +17,9 @@ typedef void(^DLControlAction)(id sender);
  */
 - (void)addAction:(DLControlAction)actionBlock forControlEvents:(UIControlEvents)controlEvents;
 
+// call this before deallocating the control
+// TODO: this is most likely not needed when using ARC.
+//       if so, remove this
 - (void)cleanup;
 
 @end

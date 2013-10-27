@@ -16,8 +16,10 @@
 @end
 
 @interface UIImage (Additions)
+
 /**
  Automatically make the image a stretchable image assuming it should only be stretched horizontally with 1 px in the middle being stretched.
  */
 - (UIImage *)horizontallyStretchedImage;
+
 @end

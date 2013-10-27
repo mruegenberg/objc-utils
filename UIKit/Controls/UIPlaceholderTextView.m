@@ -9,7 +9,6 @@
 @end
 
 @implementation UIPlaceHolderTextView
-@synthesize placeHolderLabel, placeholder, placeholderColor;
 
 - (void)dealloc
 {

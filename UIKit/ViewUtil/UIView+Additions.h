@@ -11,6 +11,7 @@
 
 @interface UIView (Additions)
 
+// find the current first responder in this view or its subviews
 - (UIView *)findFirstResponder;
 
 @end

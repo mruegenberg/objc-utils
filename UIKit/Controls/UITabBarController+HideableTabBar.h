@@ -11,7 +11,7 @@
 
 /* WARNING: The implementation of this category makes certain assumptions about the structure of the subviews of a UITabBarController's view. There is no guarantee for this to keep working from one version of iOS to the next.
  In general, it is likely to be stable within at least major version of iOS.
- Tested up to iOS 5.1.
+ Tested on iOS 5.*, 6.* and 7.0
  */
 @interface UITabBarController (HideableTabBar)
 

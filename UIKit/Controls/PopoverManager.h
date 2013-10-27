@@ -13,9 +13,7 @@
 
  Because even though Apple basically tells you to have only one popover at a time, they make it surprisingly hard to do this properly.
  */
-@interface PopoverManager : NSObject {
-	UIPopoverController *currentPopoverController;
-}
+@interface PopoverManager : NSObject
 
 @property (nonatomic, strong) UIPopoverController *currentPopoverController;
 

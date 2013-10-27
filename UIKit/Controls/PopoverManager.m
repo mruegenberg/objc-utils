@@ -13,7 +13,6 @@
 @end
 
 @implementation PopoverManager
-@synthesize currentPopoverController;
 
 + (PopoverManager *)sharedPopoverManager {
     static PopoverManager *sharedPopoverManager;
