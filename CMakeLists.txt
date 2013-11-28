@@ -5,10 +5,19 @@ set(CMAKE_OSX_SYSROOT iphoneos5.0)
 set(CMAKE_OSX_ARCHITECTURES "armv6;armv7;i386")
 set(CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphoneos;-iphonesimulator")
 
+# note to self: globbing does not work automatically for include_directories
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/CoreFoundation/*
-  ${CMAKE_CURRENT_SOURCE_DIR}/UIKit/*
+  ${CMAKE_CURRENT_SOURCE_DIR}/CoreFoundation/Date+Time
+  ${CMAKE_CURRENT_SOURCE_DIR}/CoreFoundation/NSArray
+  ${CMAKE_CURRENT_SOURCE_DIR}/CoreFoundation/NSObject
+  ${CMAKE_CURRENT_SOURCE_DIR}/CoreFoundation/NSString
+  ${CMAKE_CURRENT_SOURCE_DIR}/CoreFoundation/Other
+  ${CMAKE_CURRENT_SOURCE_DIR}/UIKit/Controls
+  ${CMAKE_CURRENT_SOURCE_DIR}/UIKit/Drawing
+  ${CMAKE_CURRENT_SOURCE_DIR}/UIKit/TintedViews
+  ${CMAKE_CURRENT_SOURCE_DIR}/UIKit/Utility
+  ${CMAKE_CURRENT_SOURCE_DIR}/UIKit/ViewUtil
 )
 
 FILE (GLOB M_SRCS *.m CoreFoundation/*.m CoreFoundation/*/*.m UIKit/*/*.m)
@@ -22,7 +31,7 @@ target_link_libraries(objc-utils
   )
 
 set_target_properties(objc-utils PROPERTIES
-   MACOSX_BUNDLE_GUI_IDENTIFIER "com.yourcompany.objc-utils"
+   MACOSX_BUNDLE_GUI_IDENTIFIER "com.dustlab.objc-utils"
    MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in
    RESOURCE "${RESOURCES}"
    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
