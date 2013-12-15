@@ -7,21 +7,27 @@
 //
 
 #import "NSObject+KVCExtensions.h"
-#import "NSArray+FPAdditions.h"
 #import "Util.h"
 
 @implementation NSObject (KVCExtensions)
 
 - (void)setValuesForKeyPathsWithDictionary:(NSDictionary *)keyedValues {
 	for(id keyPath in keyedValues) {
+        NSArray *components = [keyPath componentsSeparatedByString:@"."];
+        NSArray *initialPathAry = [components subarrayWithRange:NSMakeRange(0, MAX(0, [components count] - 1))];
+        NSString *initialPath = [initialPathAry componentsJoinedByString:@"."];
+        NSString *path = initialPath;
+        if(path == nil || [path isEqualToString:@""]) {
+            path = keyPath;
+        }
 		if([keyedValues valueForKeyPath:keyPath] == [NSNull null]) {
-            if([self valueForKeyPath:fromEmptyStr([[[keyPath componentsSeparatedByString:@"."] initialArray] componentsJoinedByString:@"."], keyPath)] != nil)
+            if([self valueForKeyPath:path] != nil)
                 [self setValue:nil forKeyPath:keyPath];
             else
                 [self setValue:nil forKey:keyPath];
         }
 		else {
-            if([self valueForKeyPath:fromEmptyStr([[[keyPath componentsSeparatedByString:@"."] initialArray] componentsJoinedByString:@"."], keyPath)] != nil)
+            if([self valueForKeyPath:path] != nil)
                 [self setValue:[keyedValues objectForKey:keyPath] forKeyPath:keyPath];
             else
                 [self setValue:[keyedValues objectForKey:keyPath] forKey:keyPath];

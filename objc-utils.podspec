@@ -23,17 +23,8 @@ Pod::Spec.new do |s|
   s.platform = :ios, "5.0"
   s.requires_arc = true
 
-  s.source_files = 'Util.h', 'Util.m'
-
-  s.subspec 'CoreFoundation' do |sp|
-    sp.source_files = 'CoreFoundation/**/*.{h,m,c}'
-    sp.library   = 'z'
-    sp.framework = 'CoreFoundation'
-  end
-
-  s.subspec 'UIKit' do |sp|
-    sp.source_files = 'UIKit/**/*.{h,m,c}'
-    sp.framework = 'UIKit'
-    sp.resources = 'UIKit/ViewUtil/*.png'
-  end
+  s.source_files = 'Util.h', 'Util.m', 'CoreFoundation/**/*.{h,m,c}'
+  s.library = 'z'
+  s.frameworks = 'Foundation', 'UIKit'
+  s.resources = 'UIKit/ViewUtil/*.png'
 end
