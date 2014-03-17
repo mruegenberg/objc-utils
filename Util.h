@@ -11,6 +11,3 @@
 
 id fromNil(id origValue, id alternativeValue);
 NSString *fromEmptyStr(NSString *origValue, NSString *alternativeValue);
-
-NSInteger majorOSVersion();
-NSInteger minorOSVersion();

@@ -10,7 +10,7 @@ What is in here
 Compatibility
 -------------
 - As of version 0.2.0, all code requires an ARC (Automatic Reference Counting) capable compiler.
-- Everything should be compatible with the iOS SDK 5 or above
+- Everything should be compatible with the iOS SDK 5 or above. Since version 0.5, OS X should be supported as well.
 
 How to use
 ----------
@@ -23,11 +23,12 @@ Replacements for removed categories
 Over time, some categories were removed, since their functionality is offered in separate projects:
 - Use [KSCrypto](https://github.com/karelia/KSCrypto) instead of `NSString+Hash`. Note, however, that the resulting hashes are different, as NSString+Hash used Base32 encoding to convert hashes to strings.
 - Use the [GZIP](https://github.com/rcdilorenzo/GZIP) instead of `NSData+CocoaDevUserAdditions`. GZIP, using the default compression/decompression methods is fully compatible to `NSData+CocoaDevUserAdditions`.
+- All UIKit-related functionality was moved to [uikit-utils](https://github.com/mruegenberg/uikit-utils) and [ios-versioncheck](https://github.com/mruegenberg/ios-versioncheck).
 
 License
 -------
-You can redistribute and use in your commercial or non-commercial projects all of this code. No guarantee is expressed or implied.
-If you redistribute the code, license notices and the name of the original author (if contained in the code) must be preserved.
+MIT.
+(Before version 0.5.0, a custom permissive license was used.)
 
 ## Contact
 
