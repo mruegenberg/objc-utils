@@ -50,12 +50,6 @@
 	}
 }
 
-- (void) dealloc
-{
-	[self deactivateBinding];
-}
-
-
 @end
 
 
