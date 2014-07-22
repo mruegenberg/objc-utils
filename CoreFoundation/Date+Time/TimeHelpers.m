@@ -54,7 +54,7 @@ NSString *timeLengthToShortString(NSInteger timeLength) {
     {
         NSInteger hours = timeLength / (60 * 60);
         NSInteger minutes = (NSInteger) ceil(((float)(timeLength - (hours * 60 * 60))) / 60.0);
-        prefix = [NSString stringWithFormat:([prefix isEqualToString:@""] ? @"%@%d:%02d" : @"%@, %d:%02ld"), prefix, hours, (long)minutes];
+        prefix = [NSString stringWithFormat:([prefix isEqualToString:@""] ? @"%@%ld:%02ld" : @"%@, %ld:%02ld"), prefix, (long)hours, (long)minutes];
     }
     
     return prefix;
