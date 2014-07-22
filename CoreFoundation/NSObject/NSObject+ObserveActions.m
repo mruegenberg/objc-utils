@@ -87,10 +87,6 @@ static char observeActionKey;
     [actions addObject:binding];
 }
 
-- (void)addObserverAction:(ObserveAction)action forKeyPath:(NSString *)keyPath {
-    [self addObserverAction:action forKeyPath:keyPath context:nil];
-}
-
 - (void)removeActionObserverForKeyPath:(NSString *)keyPath context:(id)context {
 	NSMutableArray *actions = objc_getAssociatedObject(self, &observeActionKey);
     if(actions == nil) {
@@ -107,10 +103,6 @@ static char observeActionKey;
             break;
         }
     }
-}
-
-- (void)removeActionObserverForKeyPath:(NSString *)keyPath {
-    [self removeActionObserverForKeyPath:keyPath context:nil];
 }
 
 @end
