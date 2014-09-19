@@ -10,7 +10,7 @@
 
 @interface NSObject (PerformBlock)
 
-- (void)performBlock:(void(^)(void))block afterDelay:(NSTimeInterval)delay;
+- (void)performBlock:(void(^)(void))block afterDelay:(NSTimeInterval)delay __attribute__((deprecated));
 
 - (void)performBlockOnMainThread:(void(^)(void))block afterDelay:(NSTimeInterval)delay;
 

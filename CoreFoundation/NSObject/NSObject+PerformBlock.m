@@ -12,10 +12,13 @@
 
 - (void)performBlock:(void(^)(void))block afterDelay:(NSTimeInterval)delay
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC), 
                    dispatch_get_current_queue(), ^{
                        block();
                    });
+#pragma clang diagnostic pop
 }
 
 - (void)performBlockOnMainThread:(void(^)(void))block afterDelay:(NSTimeInterval)delay
