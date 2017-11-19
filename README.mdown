@@ -33,5 +33,10 @@ MIT.
 ## Contact
 
 ![Travis CI build status](https://api.travis-ci.org/mruegenberg/objc-utils.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmruegenberg%2Fobjc-utils.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmruegenberg%2Fobjc-utils?ref=badge_shield)
 
 Bug reports and pull requests are welcome! Contact me via e-mail or just by opening an issue on GitHub.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmruegenberg%2Fobjc-utils.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmruegenberg%2Fobjc-utils?ref=badge_large)
